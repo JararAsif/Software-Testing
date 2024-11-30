@@ -9,6 +9,9 @@ public class LoginAppTest {
     @Before
     public void setUp() {
         loginApp = new LoginApp();
+        // In LoginAppTest.java, add a print statement for testing
+        System.out.println("Test print statement");
+
     }
 
     @Test
