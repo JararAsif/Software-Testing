@@ -26,4 +26,4 @@ jobs:
       run: mvn clean install -f "Software-Testing/Assignment 2/pom.xml"  # Run Maven build command
 
     - name: Run Tests
-      run: mvn test -f "Software-Testing/Assignment 2/pom.xml"  # Run your tests using Maven
+      run: mvn test -f "Assignment 2/pom.xml"  # Run your tests using Maven
