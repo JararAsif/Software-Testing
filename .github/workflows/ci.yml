@@ -1,25 +1,29 @@
-name: Java CI with Maven
+name: CI Pipeline
 
 on:
+  push:
+    branches:
+      - main
   pull_request:
     branches:
-      - main  # Or master, depending on your default branch
+      - main
 
 jobs:
   build:
-    runs-on: ubuntu-latest  # This specifies the OS environment for running the job
+    runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v3  # This action checks out the repository to the runner
+    - name: Checkout code
+      uses: actions/checkout@v2
 
-    - name: Set up JDK 11
+    - name: Set up Java
       uses: actions/setup-java@v3
       with:
-        java-version: '11'  # You can modify this version if necessary
+        distribution: 'temurin'  # Use 'temurin' or 'zulu' for JDK distribution
+        java-version: '11'  # Use the appropriate Java version
 
     - name: Build with Maven
-      run: mvn clean install  # This will clean the project and run Maven's build process
+      run: mvn clean install -f "Software-Testing/Assignment 2/pom.xml"  # Run Maven build command
 
-    - name: Run tests with Maven
-      run: mvn test  # This will run the unit tests using Maven
+    - name: Run Tests
+      run: mvn test -f "Assignment 2/pom.xml"  # Run your tests using Maven
