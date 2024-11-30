@@ -9,6 +9,7 @@ public class LoginAppTest {
     @Before
     public void setUp() {
         loginApp = new LoginApp();
+        System.out.println("Test print statement");
     }
 
     @Test
